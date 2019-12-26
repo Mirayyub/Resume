@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Resume.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,7 +11,14 @@ namespace Resume.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            HomePageVM model = new HomePageVM
+            {
+                Contacts = _context.Contacts.OrderByDescending(c => c.Id).Take(1).ToList(),
+                Abouts = _context.Abouts.OrderByDescending(o => o.Id).Take(1).ToList(),
+
+
+            };
+            return View(model);
         }
 
        

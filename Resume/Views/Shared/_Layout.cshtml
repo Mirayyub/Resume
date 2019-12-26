@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@{ 
+     Setting setting = ViewBag.Setting as Setting;
+     Contact contact = ViewBag.Contact as Contact;
+}
+
+<!DOCTYPE html>
 <html lang="en">
 
 
@@ -8,8 +13,8 @@
     <title>Resume</title>
     <link rel="stylesheet" type="text/css" href="~/assets/jquery.mCustomScrollbar/jquery.mCustomScrollbar.css">
     <link rel="stylesheet" type="text/css" href="~/assets/css/master.css">
-   
-    
+
+
 </head>
 <body>
 
@@ -23,9 +28,9 @@
                 <div class="col-md-3 col-xs-8">
                     <a href="@Url.Action("index","home")" class="logo">
                         <div class="header-avatar">
-                            <img src="~/assets/media/first-screen/img_1.jpg" alt="">
+                            <img src="~/assets/media/first-screen/@setting.Logo" alt="">
                         </div>
-                        <span class="point">Home</span>
+                        <span class="point">@setting.HomeHead</span>
                     </a>
                 </div>
                 <div class="col-md-9 text-right hidden-sm hidden-xs">
@@ -39,7 +44,6 @@
                     </div>
                     <div class="change-lng header-links">
                         <ul>
-                            
                         </ul>
                     </div>
                 </div>
@@ -71,7 +75,6 @@
                 </div>
                 <div class="change-lng header-links">
                     <ul>
-                        
                     </ul>
                 </div>
             </div>
@@ -80,7 +83,7 @@
     </div>
     <!-- Mobile menu -->
     @RenderBody()
-    
+
 
     <footer class="footer">
         <div class="container">
@@ -105,6 +108,7 @@
                         </div>
                         <div class="opacity-box">
                             <p>
+                                
                                 Hello! My name is Richard Brown. I am a UI\UX designer located in Hartford,
                                 Connecticut. I currently work as a part time Remote Junior Web Designer for Coolor,
                                 located in Las Vegas. I am looking to take on more work and to increase my skills as
@@ -238,13 +242,11 @@
                 <div class="modal-body">
                     <div class="about-me">
                         <div class="about-title">
-                            <h3>Contact</h3>
+                            <h3>@contact.HeaderName</h3>
                         </div>
                         <div class="opacity-box">
                             <p>
-                                Are you working on something great? I would love to help make it happen! Drop me a letter
-                                and start your project right now! Just do it. I will not spam you on e-mail
-                                or add to MailChimp list.
+                                @contact.ContactText
                             </p>
                         </div>
                     </div>
@@ -368,11 +370,11 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139591409-1"></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-    gtag('config', 'UA-139591409-1');
+        gtag('config', 'UA-139591409-1');
     </script>
 </body>
 

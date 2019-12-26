@@ -14,7 +14,10 @@ namespace Resume.Controllers
         public BaseController()
         {
             _context = new ResumeContext();
-            
+
+            ViewBag.Setting = _context.Settings.OrderByDescending(s=>s.Id).FirstOrDefault();
+            ViewBag.Contact = _context.Contacts.OrderByDescending(c => c.Id).FirstOrDefault();
+
         }
     }
 }

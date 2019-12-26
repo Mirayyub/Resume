@@ -79,3 +79,4 @@ C:\Users\localadmin\source\repos\Resume\Resume\bin\EntityFramework.xml
 C:\Users\localadmin\source\repos\Resume\Resume\bin\EntityFramework.SqlServer.xml
 C:\Users\localadmin\source\repos\Resume\Resume\obj\Debug\Resume.Migrations.init.resources
 C:\Users\localadmin\source\repos\Resume\Resume\obj\Debug\Resume.csproj.GenerateResource.cache
+C:\Users\localadmin\source\repos\Resume\Resume\obj\Debug\Resume.Migrations.contactsecondtextaddmcontact.resources

@@ -1,4 +1,5 @@
-﻿@{
+﻿@model HomePageVM
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -14,14 +15,18 @@
                             </div>
                             <div class="about-me">
                                 <div class="about-title">
-                                    <h3>I’m Richard Brown. I design mobile and web experiences.</h3>
+                                    <h3>@foreach (var item in Model.Abouts)
+                                    {
+                                        @item.Head
+                                    }
+                                    </h3>
                                 </div>
                                 <div class="opacity-box">
                                     <p>
-                                        I am a UI\UX designer located in Hartford, Connecticut. I currently
-                                        work as a part time Remote Junior Web Designer for Coolor, located
-                                        in Las Vegas. I am looking to take on more work and to increase my
-                                        skills as a UI\UX enthusiast.
+                                        @foreach (var item in Model.Abouts)
+                                        {
+                                            @item.AboutText
+                                        }
                                     </p>
                                 </div>
                             </div>
@@ -179,7 +184,12 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="section-title">
-                            <h3>Contact</h3>
+                            <h3>
+                                @foreach (var item in Model.Contacts)
+                                {
+                                    @item.HeaderName
+                                }
+                                                    </h3>
                         </div>
                     </div>
                 </div>
@@ -188,33 +198,43 @@
                     <div class="col-md-6">
                         <div class="opacity-box contact-text">
                             <p>
-                                Are you working on something great? I would love to help make it happen! Drop me a
-                                letter and start your project right now! Just do it. I will not spam you
-                                on <br> e-mail or add to MailChimp list.
+                                @foreach (var item in Model.Contacts)
+                                {
+                                    @item.ContactSecondText
+                                }
                             </p>
                         </div>
                         <div class="about-me-info">
                             <p class="info-row">
                                 <span class="span-title">Phone</span>
                                 <span class="opacity-box">
-                                    <a href="tel:+1-203-324-5400">+1-203-324-5400</a>
+                                    @foreach (var item in Model.Contacts)
+                                    {
+                                        <a href="@item.Mobile">@item.Mobile</a>
+                                    }
+
                                 </span>
                             </p>
                             <p class="info-row">
                                 <span class="span-title">Email</span>
                                 <span class="opacity-box">
-                                    <a href="mailto:richarddesigner@gmail.com">richarddesigner@gmail.com</a>
+                                    @foreach (var item in Model.Contacts)
+                                    {
+                                    <a href="mailto:@item.Email?Subject=Hello">@item.Email</a>
+                                    }
+                                    
                                 </span>
                             </p>
                             <p class="info-row">
                                 <span class="span-title">Address</span>
                                 <span class="opacity-box">
-                                    <a class="map-link" href="open-google-map.html">3113 Lochmere Avenue, Weymouth, MA, United States</a>
+                                    <a class="map-link" href="open-google-map.html">baku</a>
                                 </span>
                             </p>
                             <p class="info-row">
                                 <span class="span-title">Social</span>
                                 <span>
+                                   
                                     <a target="_blank" href="https://www.facebook.com/" class="fa fonts-icons mdi mdi-facebook"></a>
                                     <a target="_blank" href="https://twitter.com/" class="fa fonts-icons mdi mdi-twitter"></a>
                                     <a target="_blank" href="https://www.instagram.com/" class="fa fonts-icons mdi mdi-instagram"></a>
