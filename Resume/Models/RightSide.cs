@@ -5,14 +5,12 @@ using System.Web;
 
 namespace Resume.Models
 {
-    public class UserLink
+    public class RightSide
     {
         public int Id { get; set; }
 
-        public string Url { get; set; }
+        public string SideHead { get; set; }
 
-        public string Name { get; set; }
-
-       
+        public string SideText { get; set; }
     }
 }

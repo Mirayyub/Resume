@@ -6,20 +6,17 @@ using System.Web;
 
 namespace Resume.ViewModels
 {
-    public class HomePageVM
+    public class ProjectDetailVM
     {
+        public Project Project { get; set; }
+
+        public RightSide RightSide { get; set; }
 
         public List<Contact> Contacts { get; set; }
-        public List<About> Abouts { get; set; }
 
         public List<UserLink> UserLinks { get; set; }
 
-        public List<ProjectType> ProjectTypes { get; set; }
-
-        public List<Project> Projects { get; set; }
-
-
-
+        public ProjectType ProjectType { get; set; }
 
     }
 }

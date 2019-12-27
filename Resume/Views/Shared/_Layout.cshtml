@@ -1,7 +1,10 @@
-﻿@{ 
-     Setting setting = ViewBag.Setting as Setting;
-     Contact contact = ViewBag.Contact as Contact;
+﻿@{
+    Setting setting = ViewBag.Setting as Setting;
+    Contact contact = ViewBag.Contact as Contact;
+    About about = ViewBag.About as About;
+    List<UserLink> userLinks = ViewBag.UserLinks as List<UserLink>;
 }
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +16,7 @@
     <title>Resume</title>
     <link rel="stylesheet" type="text/css" href="~/assets/jquery.mCustomScrollbar/jquery.mCustomScrollbar.css">
     <link rel="stylesheet" type="text/css" href="~/assets/css/master.css">
-
+    <link rel="stylesheet" type="text/css" href="~/assets/css/color.css">
 
 </head>
 <body>
@@ -82,300 +85,402 @@
         </div>
     </div>
     <!-- Mobile menu -->
-    @RenderBody()
+    <div class="wrapper">
 
+        @RenderBody()
 
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="copyright">
-                        <p>Copyright 2020</p>
+        <div class="contacts-section section">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-title">
+                            <h3>
+                                @contact.HeaderName
+                            </h3>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </footer>
 
-    <!-- Modal about me -->
-    <div class="modal fade" id="about-me-modal" tabindex="-1" role="dialog" aria-labelledby="about-me-modal" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="about-me">
-                        <div class="about-title">
-                            <h3>About me</h3>
-                        </div>
-                        <div class="opacity-box">
-                            <p>
-                                
-                                Hello! My name is Richard Brown. I am a UI\UX designer located in Hartford,
-                                Connecticut. I currently work as a part time Remote Junior Web Designer for Coolor,
-                                located in Las Vegas. I am looking to take on more work and to increase my skills as
-                                a UI\UX enthusiast.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="about-me-info">
-                        <p class="info-row">
-                            <span class="span-title">Phone</span>
-                            <span class="opacity-box">
-                                <a href="tel:+1-203-324-5400">+1-203-324-5400</a>
-                            </span>
-                        </p>
-                        <p class="info-row">
-                            <span class="span-title">Email</span>
-                            <span class="opacity-box">
-                                <a href="mailto:richarddesigner@gmail.com">richarddesigner@gmail.com</a>
-                            </span>
-                        </p>
-                        <p class="info-row">
-                            <span class="span-title">Address</span>
-                            <span class="opacity-box">
-                                <a class="map-link" href="open-google-map.html">3113 Lochmere Avenue, Weymouth, MA, United States</a>
-                            </span>
-                        </p>
-                        <p class="info-row">
-                            <span class="span-title">Social</span>
-                            <span>
-                                <a target="_blank" href="https://www.facebook.com/" class="fa fonts-icons mdi mdi-facebook"></a>
-                                <a target="_blank" href="https://twitter.com/" class="fa fonts-icons mdi mdi-twitter"></a>
-                                <a target="_blank" href="https://www.instagram.com/" class="fa fonts-icons mdi mdi-instagram"></a>
-                                <a target="_blank" href="https://dribbble.com/" class="fa fonts-icons mdi mdi-dribbble"></a>
-                                <a target="_blank" href="https://www.behance.net/" class="fa fonts-icons mdi mdi-behance"></a>
-                            </span>
-                        </p>
-                    </div>
-                    <div class="modal-img">
-                        <img src="~/assets/media/modal-about-me/img_8.jpg" alt="">
-                    </div>
-                    <div class="resume-box">
-                        <div class="resume-title">
-                            <h4>Experience</h4>
-                        </div>
-                        <div class="resume-desc opacity-box">
-                            <p>
-                                I partner with startups, organizations and Fortune 500 companies to build digital
-                                products that help clients overcome challenges and create lasting connections
-                                with millions of people every day.
-                            </p>
-                        </div>
-                        <div class="resume-info">
-                            <div class="resume-info-title">
-                                <h5>UI\UX designer @@ Coolor Studio</h5>
-                            </div>
-                            <div class="resume-info-desc opacity-box">
+                <div class="row">
+
+                    
+                        <div class="col-md-6">
+                            <div class="opacity-box contact-text">
                                 <p>
-                                    Designed UX for product website, including optimized check-out page
-                                    that increased user clicks, and subsequently customer purchases by 20%.
+                                    @contact.ContactSecondText
                                 </p>
                             </div>
-                            <div class="resume-date opacity-box">
-                                <p>May 2014 — present</p>
-                            </div>
-                        </div>
-                        <div class="resume-info">
-                            <div class="resume-info-title">
-                                <h5>Web designer @@ Illskill agency</h5>
-                            </div>
-                            <div class="resume-info-desc opacity-box">
-                                <p>
-                                    Leading a small team on a variety of UI design projects and delivering
-                                    solutions to meet and exceed clients’ briefs.
+                            <div class="about-me-info">
+
+                                <p class="info-row">
+                                    <span class="span-title">Phone</span>
+                                    <span class="opacity-box">
+                                        <a href="@contact.Phone">@contact.Phone</a>
+                                    </span>
+                                </p>
+
+                                <p class="info-row">
+                                    <span class="span-title">Email</span>
+                                    <span class="opacity-box">
+                                        <a href="mailto:@contact.Email?Subject=Hello">@contact.Email</a>
+                                    </span>
+                                </p>
+                                <p class="info-row">
+                                    <span class="span-title">Address</span>
+                                    <span class="opacity-box">
+                                        <a class="map-link" href="open-google-map.html">@contact.Adress</a>
+                                    </span>
+                                </p>
+
+                                <p class="info-row">
+                                    <span class="span-title">Social</span>
+                                    <span>
+                                        @foreach (var social in Model.UserLinks)
+                                        {
+                                            <a target="_blank" href="@social.Url" class="fa fonts-icons mdi mdi-@social.Name"></a>
+                                        }
+
+                                    </span>
                                 </p>
                             </div>
-                            <div class="resume-date opacity-box">
-                                <p>January, 2013 — May, 2014</p>
-                            </div>
+                        </div>
+
+                    
+
+
+
+                    <div class="col-md-6">
+                        <div class="form-wrapper">
+                            <form id="contact-form" novalidate>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="name-input">Name</label>
+                                            <input type="text"
+                                                   class="site-input name-input"
+                                                   id="name-input"
+                                                   placeholder="Your name"
+                                                   required
+                                                   data-validation-required-message="Invalid input">
+                                            <p class="help-block"></p>
+                                            <p class="help-block-success">done</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="email-input">E-mail</label>
+                                            <input type="email"
+                                                   class="site-input email-input"
+                                                   id="email-input"
+                                                   placeholder="Contact e-mail"
+                                                   required
+                                                   data-validation-email-message="Invalid input"
+                                                   data-validation-required-message="Invalid input">
+                                            <p class="help-block"></p>
+                                            <p class="help-block-success">done</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="textarea">Message</label>
+                                            <textarea id="textarea"
+                                                      class="site-input textarea"
+                                                      placeholder="Project description"
+                                                      required
+                                                      data-validation-required-message="Invalid input"></textarea>
+                                            <p class="help-block"></p>
+                                            <p class="help-block-success">done</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="submit-holder">
+                                            <input class="site-btn btn-theme-blue" type="submit" value="Send message">
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
-                    <div class="resume-box">
-                        <div class="resume-title">
-                            <h4>Education</h4>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="copyright">
+                            <p>@setting.FooterText</p>
                         </div>
-                        <div class="resume-desc opacity-box">
-                            <p>
-                                All my life I have been driven by my strong belief that education
-                                is important. I try to learn something new every single day.
-                            </p>
-                        </div>
-                        <div class="resume-info">
-                            <div class="resume-info-title">
-                                <h5>Product Design Course @@ Google & Udacity</h5>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Modal about me -->
+        <div class="modal fade" id="about-me-modal" tabindex="-1" role="dialog" aria-labelledby="about-me-modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="about-me">
+                            <div class="about-title">
+                                <h3>About me</h3>
                             </div>
-                            <div class="resume-info-desc opacity-box">
+                            <div class="opacity-box">
                                 <p>
-                                    DProduct Design blends theory and practice to teach product validation, UI/UX
-                                    practices, Google’s Design Sprint and the process for setting and tracking
-                                    actionable metrics.
+
+                                    @about.AboutSecondText
                                 </p>
                             </div>
-                            <div class="resume-date opacity-box">
-                                <p>April, 2015 — May, 2015</p>
-                            </div>
                         </div>
-                        <div class="resume-info">
-                            <div class="resume-info-title">
-                                <h5>Graphic Design @@ Boston University</h5>
-                            </div>
-                            <div class="resume-info-desc opacity-box">
-                                <p>BSc (Hons) in Graphic Design. Outstanding Academic Achievement Award.</p>
-                            </div>
-                            <div class="resume-date opacity-box">
-                                <p>January, 2005 — May, 2009</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-buttons">
-                        <a class="site-btn btn-theme-blue" href="#" data-dismiss="modal" data-toggle="modal" data-target="#contact-me-modal">Contact me</a>
-                        <a class="site-btn btn-theme-blue-tr" href="#" data-dismiss="modal" aria-hidden="true">Back to cv</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Modal about me -->
-    <!-- Modal contact me -->
-    <div class="modal fade" id="contact-me-modal" tabindex="-1" role="dialog" aria-labelledby="contact-me-modal" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="about-me">
-                        <div class="about-title">
-                            <h3>@contact.HeaderName</h3>
-                        </div>
-                        <div class="opacity-box">
-                            <p>
-                                @contact.ContactText
+                        <div class="about-me-info">
+                            <p class="info-row">
+                                <span class="span-title">Phone</span>
+                                <span class="opacity-box">
+                                    <a href="tel:@contact.Phone">@contact.Phone</a>
+                                </span>
+                            </p>
+                            <p class="info-row">
+                                <span class="span-title">Email</span>
+                                <span class="opacity-box">
+                                    <a href="mailto:@contact.Email">@contact.Email</a>
+                                </span>
+                            </p>
+                            <p class="info-row">
+                                <span class="span-title">Address</span>
+                                <span class="opacity-box">
+                                    <a class="map-link" href="open-google-map.html">@contact.Adress</a>
+                                </span>
+                            </p>
+                            <p class="info-row">
+                                <span class="span-title">Social</span>
+                                <span>
+                                    @foreach (var item in userLinks)
+                                    {
+                                        <a target="_blank" href="@item.Url" class="fa fonts-icons mdi mdi-@item.Name.ToLower()"></a>
+                                    }
+
+                                </span>
                             </p>
                         </div>
-                    </div>
-                    <div class="form-wrapper">
-                        <form id="modal-form" novalidate>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="name-modal">Name</label>
-                                        <input type="text"
-                                               class="site-input name-input"
-                                               id="name-modal"
-                                               placeholder="Your name"
-                                               required
-                                               data-validation-required-message="Invalid input">
-                                        <p class="help-block"></p>
-                                        <p class="help-block-success">done</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="email-modal">E-mail</label>
-                                        <input type="email"
-                                               class="site-input email-input"
-                                               id="email-modal"
-                                               placeholder="Contact e-mail"
-                                               required
-                                               data-validation-email-message="Invalid input"
-                                               data-validation-required-message="Invalid input">
-                                        <p class="help-block"></p>
-                                        <p class="help-block-success">done</p>
-                                    </div>
-                                </div>
+                        <div class="modal-img">
+                            <img src="~/assets/media/modal-about-me/@about.SecondPhoto" alt="">
+                        </div>
+                        <div class="resume-box">
+                            <div class="resume-title">
+                                <h4>@about.ExperienceHead</h4>
                             </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for="textarea-modal">Message</label>
-                                        <textarea id="textarea-modal"
-                                                  class="site-input textarea"
-                                                  placeholder="Project description"
-                                                  required
-                                                  data-validation-required-message="Invalid input"></textarea>
-                                        <p class="help-block"></p>
-                                        <p class="help-block-success">done</p>
+                            <div class="resume-desc opacity-box">
+                                <p>
+                                    @about.ExperienceText
+                                </p>
+                            </div>
+                            @foreach (var exp in about.Experiences)
+                            {
+                                <div class="resume-info">
+                                    <div class="resume-info-title">
+                                        <h5>@exp.Position @@ @exp.ExperienceCO</h5>
+                                    </div>
+                                    <div class="resume-info-desc opacity-box">
+                                        <p>
+                                            @exp.ExperienceCOText
+                                        </p>
+                                    </div>
+                                    <div class="resume-date opacity-box">
+                                        <p>@exp.ExperienceCODate</p>
                                     </div>
                                 </div>
+                            }
+
+
+                        </div>
+
+                        <div class="resume-box">
+                            <div class="resume-title">
+                                <h4>@about.EducationHead</h4>
                             </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="modal-buttons">
-                                        <input class="site-btn btn-theme-blue" type="submit" value="Send message">
-                                        <a class="site-btn btn-theme-blue-tr" href="#" data-dismiss="modal" aria-hidden="true">Back to cv</a>
+                            <div class="resume-desc opacity-box">
+                                <p>
+                                    @about.EducationText
+                                </p>
+                            </div>
+                            @foreach (var edu in about.Educations)
+                            {
+                                <div class="resume-info">
+                                    <div class="resume-info-title">
+                                        <h5>@edu.Department @@ @edu.SchoolOrUni</h5>
+                                    </div>
+                                    <div class="resume-info-desc opacity-box">
+                                        <p>
+                                            @edu.EducationText
+                                        </p>
+                                    </div>
+                                    <div class="resume-date opacity-box">
+                                        <p>@edu.EducationDate</p>
                                     </div>
                                 </div>
-                            </div>
-                        </form>
+                            }
+
+
+                        </div>
+                        <div class="modal-buttons">
+                            <a class="site-btn btn-theme-blue" href="#" data-dismiss="modal" data-toggle="modal" data-target="#contact-me-modal">Contact me</a>
+                            <a class="site-btn btn-theme-blue-tr" href="#" data-dismiss="modal" aria-hidden="true">Back to cv</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Modal contact me -->
-    <!-- Modal send message -->
-    <div class="modal fade" id="send-message-modal" tabindex="-1" role="dialog" aria-labelledby="send-message-modal" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="about-me">
-                        <div class="about-title">
-                            <h3>Your message has been sent!</h3>
+        <!-- Modal about me -->
+        <!-- Modal contact me -->
+        <div class="modal fade" id="contact-me-modal" tabindex="-1" role="dialog" aria-labelledby="contact-me-modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="about-me">
+                            <div class="about-title">
+                                <h3>@contact.HeaderName</h3>
+                            </div>
+                            <div class="opacity-box">
+                                <p>
+                                    @contact.ContactText
+                                </p>
+                            </div>
                         </div>
-                        <div class="opacity-box">
-                            <p>
-                                Thank you for your interest in my work. I'll contact you just in a few days.
-                                Stay tuned and see you soon, friend!
-                            </p>
+                        <div class="form-wrapper">
+                            <form id="modal-form" novalidate>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="name-modal">Name</label>
+                                            <input type="text"
+                                                   class="site-input name-input"
+                                                   id="name-modal"
+                                                   placeholder="Your name"
+                                                   required
+                                                   data-validation-required-message="Invalid input">
+                                            <p class="help-block"></p>
+                                            <p class="help-block-success">done</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="email-modal">E-mail</label>
+                                            <input type="email"
+                                                   class="site-input email-input"
+                                                   id="email-modal"
+                                                   placeholder="Contact e-mail"
+                                                   required
+                                                   data-validation-email-message="Invalid input"
+                                                   data-validation-required-message="Invalid input">
+                                            <p class="help-block"></p>
+                                            <p class="help-block-success">done</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="textarea-modal">Message</label>
+                                            <textarea id="textarea-modal"
+                                                      class="site-input textarea"
+                                                      placeholder="Project description"
+                                                      required
+                                                      data-validation-required-message="Invalid input"></textarea>
+                                            <p class="help-block"></p>
+                                            <p class="help-block-success">done</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="modal-buttons">
+                                            <input class="site-btn btn-theme-blue" type="submit" value="Send message">
+                                            <a class="site-btn btn-theme-blue-tr" href="#" data-dismiss="modal" aria-hidden="true">Back to cv</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                    </div>
-                    <div class="modal-buttons">
-                        <a class="site-btn btn-theme-blue" href="#" data-dismiss="modal" aria-hidden="true">Back to cv</a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Modal send message -->
+        <!-- Modal contact me -->
+        <!-- Modal send message -->
+        <div class="modal fade" id="send-message-modal" tabindex="-1" role="dialog" aria-labelledby="send-message-modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="about-me">
+                            <div class="about-title">
+                                <h3>Your message has been sent!</h3>
+                            </div>
+                            <div class="opacity-box">
+                                <p>
+                                    Thank you for your interest in my work. I'll contact you just in a few days.
+                                    Stay tuned and see you soon, friend!
+                                </p>
+                            </div>
+                        </div>
+                        <div class="modal-buttons">
+                            <a class="site-btn btn-theme-blue" href="#" data-dismiss="modal" aria-hidden="true">Back to cv</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal send message -->
 
-    <script src="~/assets/js/jquery-2.2.3.min.js"></script>
-    <script src="~/assets/js/bootstrap.min.js"></script>
+        <script src="~/assets/js/jquery-2.2.3.min.js"></script>
+        <script src="~/assets/js/bootstrap.min.js"></script>
 
-    <script src="~/assets/js/jquery.placeholder.min.js"></script>
+        <script src="~/assets/js/jquery.placeholder.min.js"></script>
 
-    <!--Isotope-->
-    <script src="~/assets/isotope/imagesloaded.pkgd.min.js"></script>
-    <script src="~/assets/isotope/isotope.pkgd.min.js"></script>
+        <!--Isotope-->
+        <script src="~/assets/isotope/imagesloaded.pkgd.min.js"></script>
+        <script src="~/assets/isotope/isotope.pkgd.min.js"></script>
 
-    <!--Gradient-->
-    <script src="~/assets/gradient/gradient.js"></script>
+        <!--Gradient-->
+        <script src="~/assets/gradient/gradient.js"></script>
 
-    <!--Highcharts-->
-    <script src="~/assets/highcharts/highcharts.js"></script>
-    <script src="~/assets/highcharts/data.js"></script>
-    <script src="~/assets/highcharts/exporting.js"></script>
+        <!--Highcharts-->
+        <script src="~/assets/highcharts/highcharts.js"></script>
+        <script src="~/assets/highcharts/data.js"></script>
+        <script src="~/assets/highcharts/exporting.js"></script>
 
-    <!--jquery.custom-scroll-->
-    <script src="~/assets/jquery.mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+        <!--jquery.custom-scroll-->
+        <script src="~/assets/jquery.mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
 
-    <!--social likes-->
-    <script src="~/assets/social-likes/social-likes.min.js"></script>
+        <!--social likes-->
+        <script src="~/assets/social-likes/social-likes.min.js"></script>
 
-    <!--Smooth Scroll-->
-    <script src="~/assets/smoothscroll-for-websites/SmoothScroll.js"></script>
+        <!--Smooth Scroll-->
+        <script src="~/assets/smoothscroll-for-websites/SmoothScroll.js"></script>
 
-    <!--jqBootstrapValidation-->
-    <script src="~/assets/contact/jqBootstrapValidation.js"></script>
-    <script src="~/assets/contact/contact_me.js"></script>
+        <!--jqBootstrapValidation-->
+        <script src="~/assets/contact/jqBootstrapValidation.js"></script>
+        <script src="~/assets/contact/contact_me.js"></script>
 
-    <!--THEME-->
-    <script src="~/assets/js/theme.js"></script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139591409-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
+        <!--THEME-->
+        <script src="~/assets/js/theme.js"></script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139591409-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
 
-        gtag('config', 'UA-139591409-1');
-    </script>
+            gtag('config', 'UA-139591409-1');
+        </script>
 </body>
 
 </html>

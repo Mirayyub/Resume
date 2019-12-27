@@ -80,3 +80,9 @@ C:\Users\localadmin\source\repos\Resume\Resume\bin\EntityFramework.SqlServer.xml
 C:\Users\localadmin\source\repos\Resume\Resume\obj\Debug\Resume.Migrations.init.resources
 C:\Users\localadmin\source\repos\Resume\Resume\obj\Debug\Resume.csproj.GenerateResource.cache
 C:\Users\localadmin\source\repos\Resume\Resume\obj\Debug\Resume.Migrations.contactsecondtextaddmcontact.resources
+C:\Users\localadmin\source\repos\Resume\Resume\obj\Debug\Resume.Migrations.deletecontactidfromuserlink.resources
+C:\Users\localadmin\source\repos\Resume\Resume\obj\Debug\Resume.Migrations.typeaddtoprojecttype.resources
+C:\Users\localadmin\source\repos\Resume\Resume\obj\Debug\Resume.Migrations.footertexttosetting.resources
+C:\Users\localadmin\source\repos\Resume\Resume\obj\Debug\Resume.Migrations.secondphototoabout.resources
+C:\Users\localadmin\source\repos\Resume\Resume\obj\Debug\Resume.Migrations.addmodelrightside.resources
+C:\Users\localadmin\source\repos\Resume\Resume\obj\Debug\Resume.Migrations.rightsidedeletefromprojectmodel.resources

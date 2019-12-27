@@ -15,6 +15,8 @@ namespace Resume.Models
 
         public string HomeHead { get; set; }
 
+        public string FooterText { get; set; }
+
         [NotMapped]
         public HttpPostedFileBase File { get; set; }
 

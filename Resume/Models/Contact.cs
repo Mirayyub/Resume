@@ -24,7 +24,7 @@ namespace Resume.Models
 
         public string Adress { get; set; }
 
-        public List<UserLink> UserLinks { get; set; }
+        
 
     }
 }

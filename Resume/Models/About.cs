@@ -18,7 +18,9 @@ namespace Resume.Models
         public string AboutSecondText { get; set; }
         [MaxLength(100)]
         public string Photo { get; set; }
-        
+
+        public string SecondPhoto { get; set; }
+
         public string ExperienceHead { get; set; }
         [Column(TypeName = "ntext")]
         public string ExperienceText { get; set; }

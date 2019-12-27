@@ -46,9 +46,6 @@ namespace Resume.Models
 
         public string UrlApp { get; set; }
 
-        public string RightSideHead { get; set; }
-        [Column(TypeName = "ntext")]
-        public string RightSideText { get; set; }
 
         [MaxLength(100)]
         public string Photo { get; set; }

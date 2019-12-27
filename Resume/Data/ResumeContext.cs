@@ -21,7 +21,7 @@ namespace Resume.Data
         public DbSet<ProjectType> ProjectTypes { get; set; }
         public DbSet<Setting> Settings { get; set; }
         public DbSet<UserLink> UserLinks { get; set; }
-      
 
+        public DbSet<RightSide> RightSides { get; set; }
     }
 }

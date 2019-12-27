@@ -141,6 +141,30 @@
     <Compile Include="Migrations\201912261321447_contactsecondtextaddmcontact.designer.cs">
       <DependentUpon>201912261321447_contactsecondtextaddmcontact.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912270722343_deletecontactidfromuserlink.cs" />
+    <Compile Include="Migrations\201912270722343_deletecontactidfromuserlink.designer.cs">
+      <DependentUpon>201912270722343_deletecontactidfromuserlink.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912270728467_typeaddtoprojecttype.cs" />
+    <Compile Include="Migrations\201912270728467_typeaddtoprojecttype.designer.cs">
+      <DependentUpon>201912270728467_typeaddtoprojecttype.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912270810286_footertexttosetting.cs" />
+    <Compile Include="Migrations\201912270810286_footertexttosetting.designer.cs">
+      <DependentUpon>201912270810286_footertexttosetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912270959105_secondphototoabout.cs" />
+    <Compile Include="Migrations\201912270959105_secondphototoabout.designer.cs">
+      <DependentUpon>201912270959105_secondphototoabout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912271223129_addmodelrightside.cs" />
+    <Compile Include="Migrations\201912271223129_addmodelrightside.designer.cs">
+      <DependentUpon>201912271223129_addmodelrightside.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912271229150_rightsidedeletefromprojectmodel.cs" />
+    <Compile Include="Migrations\201912271229150_rightsidedeletefromprojectmodel.designer.cs">
+      <DependentUpon>201912271229150_rightsidedeletefromprojectmodel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\About.cs" />
     <Compile Include="Models\Contact.cs" />
@@ -148,10 +172,12 @@
     <Compile Include="Models\Experience.cs" />
     <Compile Include="Models\Project.cs" />
     <Compile Include="Models\ProjectType.cs" />
+    <Compile Include="Models\RightSide.cs" />
     <Compile Include="Models\Setting.cs" />
     <Compile Include="Models\UserLink.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\HomePageVM.cs" />
+    <Compile Include="ViewModels\ProjectDetailVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\assets\jquery.mCustomScrollbar\jquery.mCustomScrollbar.css" />
@@ -217,7 +243,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Base\" />
-    <Folder Include="Views\Projects\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\fonts\materialdesignicons-webfontb43a.eot" />
@@ -225,6 +250,7 @@
     <Content Include="assets\fonts\materialdesignicons-webfontb43a.woff" />
     <Content Include="assets\fonts\materialdesignicons-webfontd41d.eot" />
     <None Include="packages.config" />
+    <Content Include="Views\Projects\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201912261133498_init.resx">
@@ -232,6 +258,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912261321447_contactsecondtextaddmcontact.resx">
       <DependentUpon>201912261321447_contactsecondtextaddmcontact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912270722343_deletecontactidfromuserlink.resx">
+      <DependentUpon>201912270722343_deletecontactidfromuserlink.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912270728467_typeaddtoprojecttype.resx">
+      <DependentUpon>201912270728467_typeaddtoprojecttype.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912270810286_footertexttosetting.resx">
+      <DependentUpon>201912270810286_footertexttosetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912270959105_secondphototoabout.resx">
+      <DependentUpon>201912270959105_secondphototoabout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912271223129_addmodelrightside.resx">
+      <DependentUpon>201912271223129_addmodelrightside.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912271229150_rightsidedeletefromprojectmodel.resx">
+      <DependentUpon>201912271229150_rightsidedeletefromprojectmodel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
